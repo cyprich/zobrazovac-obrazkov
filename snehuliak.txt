@@ -1,0 +1,35 @@
+Kruh hlava
+polomer 20
+x 100
+y 50
+farba blue
+
+Kruh trup
+polomer 30
+farba blue
+pozicia dole hlava
+x -10
+
+Kruh
+polomer 40
+farba blue
+pozicia dole trup
+x -10
+
+Obdlznik
+rozmery 60 20
+farba red
+pozicia hore hlava
+x -10
+
+Obdlznik palica
+rozmery 5 150
+farba black
+pozicia vpravo trup
+
+Kruh
+polomer 5
+farba green
+pozicia hore palica
+x -2
+y 3

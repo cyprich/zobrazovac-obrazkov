@@ -1,0 +1,28 @@
+Trojuholnik 1
+x 110
+y 50
+sirka 50
+vyska 30
+farba green
+
+Trojuholnik 2
+sirka 70
+vyska 40
+farba green
+pozicia dole 1
+y -15
+x -10
+
+Trojuholnik 3
+sirka 90
+vyska 50
+farba green
+pozicia dole 2
+y -20
+x -10
+
+Obdlznik
+rozmery 20 50
+farba brown
+pozicia dole 3
+x 35

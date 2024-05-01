@@ -1,0 +1,27 @@
+Obdlznik obdl
+rozmery 50 50
+x 100
+y 100
+farba green
+
+Obdlznik
+rozmery 25 25
+pozicia hore obdl
+farba red
+x 10
+y 10
+
+Obdlznik
+rozmery 25 25
+pozicia dole obdl
+farba blue
+
+Obdlznik
+rozmery 25 25
+pozicia vpravo obdl
+farba black
+
+Obdlznik
+rozmery 25 25
+pozicia vlavo obdl
+farba brown
