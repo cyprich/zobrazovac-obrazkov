@@ -1,0 +1,7 @@
+Obdlznik
+rozmery 10 10
+x 100
+y 100
+farba red
+
+Kruh
