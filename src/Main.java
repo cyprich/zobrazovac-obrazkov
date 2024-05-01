@@ -1,5 +1,9 @@
 package src;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -7,15 +11,75 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
-        // TODO zmenit premennu pre vykreslenie ineho suboru
-        //String nazovSuboru = "src/pozicie.txt";
-        //String nazovSuboru = "src/pozicie-trojuholniky.txt";
-        //String nazovSuboru = "src/snehuliak.txt"; // taky opity snehuliak
-        String nazovSuboru = "src/strom.txt";
-
+    public static void main(String[] args) {
         // poznamka: snehuliak a strom je trochu opity, nevedel som to opravit...
 
+        JFrame okno = new JFrame("Vyber suboru");
+        JButton button1 = new JButton("pozicie.txt");
+        JButton button2 = new JButton("pozicie-trojuholniky.txt");
+        JButton button3 = new JButton("snehuliak.txt");
+        JButton button4 = new JButton("strom.txt");
+
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    nacitaj("src/pozicie.txt");
+                } catch (FileNotFoundException f) {
+                    System.out.println(f.getMessage());
+                }
+                okno.dispose();
+            }
+        });
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    nacitaj("src/pozicie-trojuholniky.txt");
+                } catch (FileNotFoundException f) {
+                    System.out.println(f.getMessage());
+                }
+                okno.dispose();
+            }
+        });
+        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    nacitaj("src/snehuliak.txt");
+                } catch (FileNotFoundException f) {
+                    System.out.println(f.getMessage());
+                }
+                okno.dispose();
+            }
+        });
+        button4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    nacitaj("src/strom.txt");
+                } catch (FileNotFoundException f) {
+                    System.out.println(f.getMessage());
+                }
+                okno.dispose();
+            }
+        });
+
+        okno.setLayout(new BorderLayout());
+        okno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        okno.add(new JLabel("Vyberte subor, z ktoreho chcete vykreslit: "), BorderLayout.NORTH);
+        JPanel tlacitka = new JPanel();
+        tlacitka.add(button1);
+        tlacitka.add(button2);
+        tlacitka.add(button3);
+        tlacitka.add(button4);
+        okno.add(tlacitka, BorderLayout.CENTER);
+        okno.pack();
+        okno.setVisible(true);
+
+    }
+
+    public static void nacitaj(String nazovSuboru) throws FileNotFoundException {
         File subor = new File(nazovSuboru);
         Scanner scannerRiadky = new Scanner(subor);
 
