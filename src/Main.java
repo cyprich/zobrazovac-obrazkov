@@ -14,6 +14,8 @@ public class Main {
         //String nazovSuboru = "src/snehuliak.txt"; // taky opity snehuliak
         String nazovSuboru = "src/strom.txt";
 
+        // poznamka: snehuliak a strom je trochu opity, nevedel som to opravit...
+
         File subor = new File(nazovSuboru);
         Scanner scannerRiadky = new Scanner(subor);
 
