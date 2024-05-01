@@ -1,7 +1,18 @@
-Obdlznik
-rozmery 10 10
+Trojuholnik A
 x 100
 y 100
-farba red
+sirka 50
+vyska 20
+farba black
 
-Kruh
+Trojuholnik
+pozicia dole A
+sirka 50
+vyska 50
+farba blue
+
+Trojuholnik
+pozicia dole A
+sirka 50
+vyska 60
+farba red

@@ -1,6 +1,5 @@
 package src;
 
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -9,14 +8,21 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
+        // TODO zmenit premennu pre vykreslenie ineho suboru
+        //String nazovSuboru = "src/pozicie.txt";
+        //String nazovSuboru = "src/pozicie-trojuholniky.txt";
+        //String nazovSuboru = "src/snehuliak.txt"; // taky opity snehuliak
+        String nazovSuboru = "src/strom.txt";
+
+        File subor = new File(nazovSuboru);
+        Scanner scannerRiadky = new Scanner(subor);
+
         HashMap<String, Nacitavac<?>> hashMap = new HashMap<>();
         hashMap.put("Obdlznik", new NacitavacObdlznikov());
         hashMap.put("Kruh", new NacitavacKruhov());
         hashMap.put("Trojuholnik", new NacitavacTrojuholnikov());
 
-        File subor = new File("src/snehuliak.txt");
-        Scanner scannerRiadky = new Scanner(subor);
-
+        Zrelativnovac zrelativnovac = new Zrelativnovac();
 
         ArrayList<ArrayList<String>> tvary = new ArrayList<>();
         ArrayList<String> tvaryRiadky = new ArrayList<>();
@@ -57,9 +63,9 @@ public class Main {
                     sirka = Integer.parseInt(riadkyTvaru.split(" ")[1]);
                 } else if (riadkyTvaru.contains("vyska")) {
                     vyska = Integer.parseInt(riadkyTvaru.split(" ")[1]);
-                } else if (riadkyTvaru.contains("priemer")) {
+                } else if (riadkyTvaru.contains("polomer")) {
                     sirka = Integer.parseInt(riadkyTvaru.split(" ")[1]);
-                    vyska = sirka;
+                    vyska = Integer.parseInt(riadkyTvaru.split(" ")[1]);
                 } else if (riadkyTvaru.contains("x")) {
                     x = Integer.parseInt(riadkyTvaru.split(" ")[1]);
                 } else if (riadkyTvaru.contains("y")) {
@@ -72,6 +78,7 @@ public class Main {
                     pozicia = riadkyTvaru.split(" ")[1];
                     relativnyElement = riadkyTvaru.split(" ")[2];
                 } else {
+                    // ak sa nezhoduje s nicim, tak je to prvy riadok -> ziskavam nazov elementu
                     try {
                         nazov = riadkyTvaru.split(" ")[1];
                     } catch (ArrayIndexOutOfBoundsException e) {
@@ -80,8 +87,7 @@ public class Main {
                 }
             }
 
-            //System.out.println(":" + nazov + ":" + pozicia + ":");
-            nacitavac.nacitaj(sirka, vyska, x, y, farba, nazov, pozicia, relativnyElement);
+            nacitavac.nacitaj(sirka, vyska, x, y, farba, nazov, pozicia, relativnyElement, zrelativnovac);
         }
 
         scannerRiadky.close();
